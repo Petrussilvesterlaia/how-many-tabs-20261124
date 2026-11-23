@@ -2,7 +2,14 @@
 
 import os
 
-os.makedirs("/output", exist_ok=True)
+def main() -> None:
+    count = "0"
+    if not count.isdigit() or not 1 <= len(count) <= 5:
+        raise ValueError("tab count must be 1-5 digits")
+    os.makedirs("/output", exist_ok=True)
+    with open("/output/entry.txt", "w", encoding="utf-8") as f:
+        f.write(count)
 
-with open("/output/entry.txt", "w", encoding="utf-8") as f:
-    f.write("0")
+
+if __name__ == "__main__":
+    main()
